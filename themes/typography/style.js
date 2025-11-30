@@ -25,17 +25,10 @@ const Style = () => {
           sans-serif !important;
         }
       }
-      
-      // 默认浅色模式底色
-      body {
-        background-color: rgb(255 255 255);
-      }
-      
-      // 默认深色模式底色
+      // 底色
       .dark body {
         background-color: rgb(35, 34, 34);
       }
-      
       // 文本不可选取
       .forbid-copy {
         user-select: none;
@@ -43,10 +36,18 @@ const Style = () => {
         -ms-user-select: none;
       }
 
-      // 浅色模式下的网格背景
+      .dark #theme-typography {
+        background-image: linear-gradient(
+              to right,
+              rgb(255 255 255 / 0.04) 1px,
+              transparent 1px
+            ),
+            linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+      }
+
       #theme-typography {
         --primary-color: #2e405b;
-        background-color: rgb(255 255 255 / 1);
+        background-color: rgb(255 255 255) / 1;
         color: #2e405b;
         background-size: 7px 7px;
         text-shadow: 1px 1px 1px rgb(0 0 0 / 0.04);
@@ -56,16 +57,6 @@ const Style = () => {
             transparent 1px
           ),
           linear-gradient(to bottom, rgb(0 0 0 / 0.04) 1px, transparent 1px);
-      }
-      
-      // 深色模式下的网格背景
-      .dark #theme-typography {
-        background-image: linear-gradient(
-              to right,
-              rgb(255 255 255 / 0.04) 1px,
-              transparent 1px
-            ),
-            linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
       }
 
       #theme-typography #blog-name {

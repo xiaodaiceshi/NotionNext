@@ -12,7 +12,6 @@ import BlogPostBar from './components/BlogPostBar'
 import CONFIG from './config'
 import { Style } from './style'
 import Catalog from './components/Catalog'
-import { initDarkMode } from '@/themes/theme'
 
 const AlgoliaSearchModal = dynamic(
   () => import('@/components/AlgoliaSearchModal'),
@@ -49,8 +48,8 @@ const RecommendPosts = dynamic(() => import('./components/RecommendPosts'), {
 })
 
 // 主题全局状态
-const ThemeGlobalTypography = createContext()
-export const useTypographyGlobal = () => useContext(ThemeGlobalTypography)
+const ThemeGlobalSimple = createContext()
+export const useSimpleGlobal = () => useContext(ThemeGlobalSimple)
 
 /**
  * 基础布局
@@ -65,7 +64,7 @@ const LayoutBase = props => {
   const searchModal = useRef(null)
 
   return (
-    <ThemeGlobalTypography.Provider value={{ searchModal }}>
+    <ThemeGlobalSimple.Provider value={{ searchModal }}>
       <div
         id='theme-typography'
         className={`${siteConfig('FONT_STYLE')} font-typography h-screen flex flex-col dark:text-gray-300 bg-white dark:bg-[#232222] overflow-hidden`}>
@@ -120,7 +119,7 @@ const LayoutBase = props => {
         {/* 搜索框 */}
         <AlgoliaSearchModal cRef={searchModal} {...props} />
       </div>
-    </ThemeGlobalTypography.Provider>
+    </ThemeGlobalSimple.Provider>
   )
 }
 
